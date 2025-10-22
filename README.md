@@ -82,6 +82,93 @@
 - 模块级文档
 - 生成文档
 
+### 5. 控制流 (`control_flow.rs`)
+
+学习 Rust 中的控制流语句和表达式。
+
+**主要内容：**
+
+**条件表达式：**
+- if 表达式（if 是表达式，可以返回值）
+- if let 表达式（简化的模式匹配）
+
+**循环：**
+- loop 无限循环
+- loop 返回值
+- 循环标签（嵌套循环控制）
+- while 条件循环
+- while let 循环
+- for 循环遍历集合
+- for 循环使用范围（`..` 和 `..=`）
+- break 和 continue
+
+**模式匹配：**
+- match 表达式
+- match 守卫（添加额外条件）
+
+**实际应用：**
+- 猜数字游戏
+- 斐波那契数列
+- 九九乘法表
+
+### 6. 所有权规则 (`ownership.rs`)
+
+学习 Rust 最核心、最独特的特性 - 所有权系统。
+
+**主要内容：**
+
+**所有权基础：**
+- 所有权三大规则
+- 变量与数据的交互 - 移动（Move）
+- 变量与数据的交互 - 克隆（Clone）
+- 栈上数据的复制（Copy trait）
+
+**所有权与函数：**
+- 所有权与函数参数
+- 返回值与所有权
+- 返回多个值
+- 所有权转移的时机
+
+**高级概念：**
+- 部分移动（结构体字段）
+- 所有权与作用域
+- 所有权与 Vec
+- 所有权与 Box 智能指针
+
+**实际应用：**
+- 字符串拼接（+ 运算符 vs format! 宏）
+- 交换值（std::mem::swap）
+- 构建器模式
+
+### 7. 引用与借用 (`references_and_borrowing.rs`)
+
+学习 Rust 的引用和借用机制，这是所有权系统的重要补充。
+
+**主要内容：**
+
+**引用基础：**
+- 引用基础（使用值但不获取所有权）
+- 引用与所有权的对比
+- 不可变引用（可以同时存在多个）
+- 可变引用（修改借用的值）
+
+**借用规则：**
+- 可变引用的限制（同一作用域只能有一个）
+- 可变引用与不可变引用不能共存
+- 借用规则总结
+- 悬垂引用（编译器防止）
+
+**引用的使用：**
+- 引用作为函数参数
+- 可变引用修改数据
+- 引用的作用域（NLL - Non-Lexical Lifetimes）
+- 多个可变引用（不同作用域）
+- 引用与切片
+
+**实际应用：**
+- 查找和替换
+- 数据验证
+
 ## 🚀 使用方法
 
 ### 运行教学示例
@@ -91,18 +178,27 @@
 ```rust
 fn main() {
     // 取消注释你想运行的模块
-    
+
     // 变量与可变性
     // variables_and_mutability::run_all_examples();
-    
+
     // 数据类型
     // data_types::run_all_examples();
-    
+
     // 函数定义与调用
     // functions::run_all_examples();
-    
+
     // 注释与文档注释
-    comments::run_all_examples();
+    // comments::run_all_examples();
+
+    // 控制流
+    // control_flow::run_all_examples();
+
+    // 所有权规则
+    // ownership::run_all_examples();
+
+    // 引用与借用
+    references_and_borrowing::run_all_examples();
 }
 ```
 
@@ -144,6 +240,9 @@ cargo test --doc
    - 数据类型
    - 函数定义与调用
    - 注释与文档注释
+   - 控制流
+   - 所有权规则
+   - 引用与借用
 
 2. **动手实践**：每个模块都可以独立运行，建议边看代码边运行
 
@@ -162,7 +261,10 @@ cargo-learn/
 │   ├── variables_and_mutability.rs  # 变量与可变性教学模块
 │   ├── data_types.rs                # 数据类型教学模块
 │   ├── functions.rs                 # 函数教学模块
-│   └── comments.rs                  # 注释教学模块
+│   ├── comments.rs                  # 注释教学模块
+│   ├── control_flow.rs              # 控制流教学模块
+│   ├── ownership.rs                 # 所有权规则教学模块
+│   └── references_and_borrowing.rs  # 引用与借用教学模块
 ├── Cargo.toml                       # 项目配置文件
 └── README.md                        # 项目说明文档
 ```
@@ -186,16 +288,18 @@ cargo-learn/
 - 函数的定义和使用
 - 如何编写高质量的文档注释
 - Rust 的表达式和语句
-- 所有权和借用的基础概念
+- 控制流结构（if、loop、while、for、match）
+- **所有权系统** - Rust 最核心的特性
+- **引用与借用** - 安全地使用值而不获取所有权
 
 ## 📚 扩展学习
 
 完成这些基础模块后，建议继续学习：
 
-- 所有权（Ownership）
-- 借用和引用（Borrowing & References）
+- 切片类型（Slices）
 - 结构体（Structs）
 - 枚举和模式匹配（Enums & Pattern Matching）
+- 方法语法（Method Syntax）
 - 错误处理（Error Handling）
 - 泛型、trait 和生命周期
 - 集合类型（Collections）
