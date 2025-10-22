@@ -95,18 +95,18 @@ pub fn mutable_reference_restrictions() {
 /// 不能在拥有不可变引用的同时拥有可变引用
 pub fn mixed_references() {
     println!("\n=== 示例 6: 可变引用与不可变引用不能共存 ===");
-    
+
     let mut s = String::from("hello");
-    
+
     let r1 = &s;
     let r2 = &s;
     println!("r1 = {}, r2 = {}", r1, r2);
-    // r1 和 r2 在这之后不再使用
-    
+    // r1 和 r2 的作用域在这里结束（最后一次使用）
+
     let r3 = &mut s;  // 可以！因为 r1 和 r2 已经不再使用
     r3.push_str(" world");
     println!("r3 = {}", r3);
-    
+
     println!("引用的作用域从声明开始，到最后一次使用结束");
 }
 

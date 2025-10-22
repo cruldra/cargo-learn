@@ -23,8 +23,8 @@ fn main() {
     // control_flow::run_all_examples();
 
     // 运行所有所有权规则的教学示例
-    ownership::run_all_examples();
+    //ownership::run_all_examples();
 
     // 运行所有引用与借用的教学示例
-    // references_and_borrowing::run_all_examples();
+    references_and_borrowing::run_all_examples();
 }
