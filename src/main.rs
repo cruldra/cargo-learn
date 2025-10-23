@@ -5,6 +5,7 @@ mod comments;
 mod control_flow;
 mod ownership;
 mod references_and_borrowing;
+mod structs;
 
 fn main() {
     // 运行所有变量与可变性的教学示例
@@ -23,8 +24,11 @@ fn main() {
     // control_flow::run_all_examples();
 
     // 运行所有所有权规则的教学示例
-    //ownership::run_all_examples();
+    // ownership::run_all_examples();
 
     // 运行所有引用与借用的教学示例
-    references_and_borrowing::run_all_examples();
+    // references_and_borrowing::run_all_examples();
+
+    // 运行所有结构体的教学示例
+    structs::run_all_examples();
 }

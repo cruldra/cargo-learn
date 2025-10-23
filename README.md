@@ -169,6 +169,37 @@
 - 查找和替换
 - 数据验证
 
+### 8. 结构体 (`structs.rs`)
+
+学习如何使用结构体组织相关数据，这是 Rust 中最重要的数据组织方式。
+
+**主要内容：**
+
+**结构体基础：**
+- 基本结构体定义与实例化
+- 可变结构体
+- 字段初始化简写
+- 结构体更新语法
+
+**特殊结构体：**
+- 元组结构体（有名称但字段无名称）
+- 单元结构体（无字段）
+
+**方法与关联函数：**
+- 方法定义（&self, &mut self, self）
+- 关联函数（类似静态方法）
+- 多个 impl 块
+- 方法的所有权
+
+**高级特性：**
+- 派生 trait（Debug, Clone, PartialEq）
+- 嵌套结构体
+- 结构体与所有权
+
+**实际应用：**
+- 图书管理系统
+- 银行账户管理
+
 ## 🚀 使用方法
 
 ### 运行教学示例
@@ -198,7 +229,10 @@ fn main() {
     // ownership::run_all_examples();
 
     // 引用与借用
-    references_and_borrowing::run_all_examples();
+    // references_and_borrowing::run_all_examples();
+
+    // 结构体
+    structs::run_all_examples();
 }
 ```
 
@@ -243,6 +277,7 @@ cargo test --doc
    - 控制流
    - 所有权规则
    - 引用与借用
+   - 结构体
 
 2. **动手实践**：每个模块都可以独立运行，建议边看代码边运行
 
@@ -264,7 +299,8 @@ cargo-learn/
 │   ├── comments.rs                  # 注释教学模块
 │   ├── control_flow.rs              # 控制流教学模块
 │   ├── ownership.rs                 # 所有权规则教学模块
-│   └── references_and_borrowing.rs  # 引用与借用教学模块
+│   ├── references_and_borrowing.rs  # 引用与借用教学模块
+│   └── structs.rs                   # 结构体教学模块
 ├── Cargo.toml                       # 项目配置文件
 └── README.md                        # 项目说明文档
 ```
@@ -291,18 +327,20 @@ cargo-learn/
 - 控制流结构（if、loop、while、for、match）
 - **所有权系统** - Rust 最核心的特性
 - **引用与借用** - 安全地使用值而不获取所有权
+- **结构体** - 组织相关数据的强大工具
 
 ## 📚 扩展学习
 
 完成这些基础模块后，建议继续学习：
 
-- 切片类型（Slices）
-- 结构体（Structs）
 - 枚举和模式匹配（Enums & Pattern Matching）
-- 方法语法（Method Syntax）
 - 错误处理（Error Handling）
-- 泛型、trait 和生命周期
+- 模块系统（Modules & Packages）
+- 泛型（Generics）
+- Trait（特征）
+- 生命周期（Lifetimes）
 - 集合类型（Collections）
+- 智能指针（Smart Pointers）
 - 并发编程（Concurrency）
 
 ## 📄 许可证
