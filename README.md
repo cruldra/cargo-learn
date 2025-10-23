@@ -200,6 +200,111 @@
 - 图书管理系统
 - 银行账户管理
 
+### 9. 枚举 (`enums.rs`)
+
+学习 Rust 的枚举类型，这是表达复杂数据和状态的强大工具。
+
+**主要内容：**
+
+**枚举基础：**
+- 基本枚举定义
+- 带数据的枚举（每个变体可携带不同类型的数据）
+- 枚举方法
+
+**Option 和 Result：**
+- Option 枚举（表示可能存在或不存在的值）
+- Option 的常用方法（unwrap, unwrap_or, map 等）
+- Result 枚举（表示成功或失败）
+- Result 的常用方法
+
+**模式匹配：**
+- if let 简化匹配
+- while let 循环
+- 模式匹配的强大功能
+
+**高级特性：**
+- 枚举与结构体结合
+- 递归枚举（使用 Box）
+- 枚举的内存布局
+
+**实际应用：**
+- 状态机（红绿灯）
+- 表达式求值器
+
+### 10. 集合类型 (`collections.rs`)
+
+学习 Rust 标准库中的常用集合类型，这些是构建实际程序的基础工具。
+
+**主要内容：**
+
+**Vector（动态数组）：**
+- Vector 基础（创建、访问、修改）
+- Vector 的常用操作（push, pop, insert, remove）
+- 遍历 Vector（不可变、可变、获取所有权）
+- 使用枚举在 Vector 中存储不同类型
+
+**String 和 &str：**
+- String 基础（创建、UTF-8 编码）
+- String 的操作（追加、拼接、替换）
+- String 和 &str 的区别
+- 字符串索引和遍历（字符、字节）
+
+**HashMap 和 BTreeMap：**
+- HashMap 基础（键值对存储）
+- HashMap 的操作（遍历、更新、entry API）
+- HashMap 的所有权
+- BTreeMap（有序的键值对）
+
+**HashSet 和 BTreeSet：**
+- HashSet 基础（唯一值集合）
+- HashSet 的集合操作（并集、交集、差集）
+- BTreeSet（有序的唯一值集合）
+
+**实际应用：**
+- 学生成绩管理
+- 去重和排序
+- 文本分析（单词频率统计）
+
+### 11. 错误处理 (`error_handling.rs`)
+
+学习 Rust 的错误处理机制，这是编写健壮程序的关键。
+
+**主要内容：**
+
+**panic! 和不可恢复错误：**
+- panic! 宏基础
+- unwrap 和 expect 方法
+- 何时使用 panic
+
+**Result 类型：**
+- Result<T, E> 基础
+- Result 的常用方法（is_ok, is_err, unwrap_or, map, and_then）
+- match 处理 Result
+
+**? 操作符：**
+- ? 操作符基础（错误传播）
+- ? 操作符的错误转换
+- 简化错误处理代码
+
+**自定义错误类型：**
+- 手动实现错误类型（Display, Error trait）
+- 使用 thiserror 简化错误定义
+- 错误类型的组合
+
+**anyhow 库：**
+- 使用 anyhow 简化应用程序错误处理
+- 添加错误上下文（context 方法）
+- 错误链（chain 方法）
+
+**高级技巧：**
+- Option 和 Result 的转换
+- 多个错误的处理策略
+
+**实际应用：**
+- 配置文件解析
+- 用户输入验证
+- 链式错误处理
+
 ## 🚀 使用方法
 
 ### 运行教学示例
@@ -232,7 +337,16 @@ fn main() {
     // references_and_borrowing::run_all_examples();
 
     // 结构体
-    structs::run_all_examples();
+    // structs::run_all_examples();
+
+    // 枚举
+    // enums::run_all_examples();
+
+    // 集合类型
+    // collections::run_all_examples();
+
+    // 错误处理
+    error_handling::run_all_examples();
 }
 ```
 
@@ -278,6 +392,9 @@ cargo test --doc
    - 所有权规则
    - 引用与借用
    - 结构体
+   - 枚举
+   - 集合类型
+   - 错误处理
 
 2. **动手实践**：每个模块都可以独立运行，建议边看代码边运行
 
@@ -300,7 +417,10 @@ cargo-learn/
 │   ├── control_flow.rs              # 控制流教学模块
 │   ├── ownership.rs                 # 所有权规则教学模块
 │   ├── references_and_borrowing.rs  # 引用与借用教学模块
-│   └── structs.rs                   # 结构体教学模块
+│   ├── structs.rs                   # 结构体教学模块
+│   ├── enums.rs                     # 枚举教学模块
+│   ├── collections.rs               # 集合类型教学模块
+│   └── error_handling.rs            # 错误处理教学模块
 ├── Cargo.toml                       # 项目配置文件
 └── README.md                        # 项目说明文档
 ```
@@ -328,20 +448,24 @@ cargo-learn/
 - **所有权系统** - Rust 最核心的特性
 - **引用与借用** - 安全地使用值而不获取所有权
 - **结构体** - 组织相关数据的强大工具
+- **枚举** - 表达复杂数据和状态的利器
+- **集合类型** - Vector、String、HashMap、HashSet 等常用数据结构
+- **错误处理** - Result、panic、? 操作符、thiserror、anyhow
 
 ## 📚 扩展学习
 
 完成这些基础模块后，建议继续学习：
 
-- 枚举和模式匹配（Enums & Pattern Matching）
-- 错误处理（Error Handling）
-- 模块系统（Modules & Packages）
-- 泛型（Generics）
-- Trait（特征）
-- 生命周期（Lifetimes）
-- 集合类型（Collections）
-- 智能指针（Smart Pointers）
-- 并发编程（Concurrency）
+- 模块系统（Modules & Packages - mod, pub, use, crate）
+- 泛型（Generics - 泛型函数、泛型结构体、泛型枚举）
+- Trait（特征 - 定义共享行为、trait bounds）
+- 生命周期（Lifetimes - 引用的有效性、生命周期标注）
+- 迭代器（Iterators - map, filter, collect, fold）
+- 闭包（Closures - 匿名函数、捕获环境）
+- 智能指针（Smart Pointers - Box, Rc, RefCell, Arc）
+- 并发编程（Concurrency - 线程、消息传递、共享状态、Mutex）
+- 异步编程（Async/Await - Future, async fn, tokio）
+- 宏（Macros - 声明宏、过程宏）
 
 ## 📄 许可证
 

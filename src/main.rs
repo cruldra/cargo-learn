@@ -6,6 +6,9 @@ mod control_flow;
 mod ownership;
 mod references_and_borrowing;
 mod structs;
+mod enums;
+mod collections;
+mod error_handling;
 
 fn main() {
     // 运行所有变量与可变性的教学示例
@@ -30,5 +33,14 @@ fn main() {
     // references_and_borrowing::run_all_examples();
 
     // 运行所有结构体的教学示例
-    structs::run_all_examples();
+    // structs::run_all_examples();
+
+    // 运行所有枚举的教学示例
+    // enums::run_all_examples();
+
+    // 运行所有集合类型的教学示例
+    // collections::run_all_examples();
+
+    // 运行所有错误处理的教学示例
+    error_handling::run_all_examples();
 }
