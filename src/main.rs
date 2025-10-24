@@ -1,14 +1,17 @@
-mod variables_and_mutability;
-mod data_types;
-mod functions;
-mod comments;
-mod control_flow;
-mod ownership;
-mod references_and_borrowing;
-mod structs;
-mod enums;
-mod collections;
-mod error_handling;
+// mod variables_and_mutability;
+// mod data_types;
+// mod functions;
+// mod comments;
+// mod control_flow;
+// mod ownership;
+// mod references_and_borrowing;
+// mod structs;
+// mod enums;
+// mod collections;
+// mod error_handling;
+// mod generics_and_traits;
+// mod lifetimes;
+mod smart_pointers;
 
 fn main() {
     // 运行所有变量与可变性的教学示例
@@ -42,5 +45,14 @@ fn main() {
     // collections::run_all_examples();
 
     // 运行所有错误处理的教学示例
-    error_handling::run_all_examples();
+    // error_handling::run_all_examples();
+
+    // 运行所有泛型与 Trait 的教学示例
+    // generics_and_traits::run_all_examples();
+
+    // 运行所有生命周期的教学示例
+    // lifetimes::run_all_examples();
+
+    // 运行所有智能指针与包装类型的教学示例
+    smart_pointers::run_all_examples();
 }

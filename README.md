@@ -305,6 +305,113 @@
 - 用户输入验证
 - 链式错误处理
 
+### 12. 泛型与 Trait (`generics_and_traits.rs`)
+
+学习 Rust 的泛型和 Trait 系统，这是实现代码复用和抽象的核心机制。
+
+**主要内容：**
+
+**泛型基础：**
+- 泛型函数（类型参数、trait bound）
+- 泛型结构体（单个和多个类型参数）
+- 泛型枚举（Option、Result）
+- 泛型方法（为泛型类型实现方法）
+
+**Trait 基础：**
+- Trait 定义（方法签名、默认实现）
+- 为类型实现 Trait
+- Trait 作为参数（impl Trait、Trait Bound）
+- where 子句（简化复杂的 trait bound）
+- 返回实现了 Trait 的类型
+
+**高级特性：**
+- 有条件地实现方法（根据 trait bound）
+- 派生 Trait（#[derive]）
+- 运算符重载（Add、Sub 等 trait）
+- 关联类型（trait 中的类型占位符）
+- 默认泛型参数
+- Trait 继承
+- 完全限定语法（消除同名方法歧义）
+
+**实际应用：**
+- 图形系统（Shape trait）
+- 泛型容器（Stack）
+- 自定义比较器
+
+### 13. 生命周期 (`lifetimes.rs`)
+
+学习 Rust 的生命周期系统，这是 Rust 内存安全的关键特性。
+
+**主要内容：**
+
+**生命周期基础：**
+- 生命周期问题演示（为什么需要生命周期注解）
+- 生命周期注解语法（&'a i32, &'a mut i32）
+- 函数中的生命周期（参数和返回值的关系）
+- 生命周期约束（防止悬垂引用）
+- 结构体中的生命周期（结构体包含引用）
+- 生命周期省略规则（编译器自动推断的三条规则）
+- 静态生命周期（'static 的使用）
+
+**高级特性：**
+- 生命周期与泛型（同时使用生命周期、泛型和 trait bound）
+- 多个生命周期参数（'a, 'b 和约束 'b: 'a）
+- 结构体方法中的生命周期（方法的省略规则）
+- 生命周期子类型（协变关系）
+
+**实际应用：**
+- 字符串解析器（零拷贝解析）
+- 配置管理器（引用管理）
+- 迭代器包装器（自定义迭代器）
+
+**核心概念：**
+- 生命周期确保引用始终有效
+- 生命周期注解描述引用之间的关系
+- 生命周期是编译时概念，零运行时开销
+- 'static 表示整个程序运行期间都有效
+
+### 14. 智能指针与包装类型 (`smart_pointers.rs`)
+
+学习 Rust 的智能指针，这些类型提供了超越普通引用的额外功能。
+
+**主要内容：**
+
+**Box<T> - 堆分配：**
+- Box 基础（堆分配、避免栈溢出）
+- 递归类型（链表、二叉树）
+- Deref trait 的使用
+
+**引用计数：**
+- Rc<T>（单线程引用计数）
+- Arc<T>（线程安全的引用计数）
+- 共享数据的所有权
+
+**内部可变性：**
+- RefCell<T>（运行时借用检查）
+- Cell<T>（Copy 类型的内部可变性）
+- Rc<RefCell<T>>（共享可变数据）
+- Arc<Mutex<T>>（线程安全的共享可变数据）
+
+**写时克隆：**
+- Cow<T> 基础（延迟克隆）
+- Cow<T> 实际应用（字符串处理优化）
+
+**自定义智能指针：**
+- 实现 Deref 和 Drop trait
+- 自定义引用计数智能指针
+
+**实际应用：**
+- 图数据结构（Rc + RefCell）
+- 缓存系统（Arc + Mutex）
+- 多线程共享数据
+
+**核心概念：**
+- 智能指针拥有数据并提供额外功能
+- Box 用于堆分配和递归类型
+- Rc/Arc 允许多个所有者
+- RefCell/Mutex 提供内部可变性
+- Cow 优化读多写少的场景
+
 ## 🚀 使用方法
 
 ### 运行教学示例
@@ -346,7 +453,16 @@ fn main() {
     // collections::run_all_examples();
 
     // 错误处理
-    error_handling::run_all_examples();
+    // error_handling::run_all_examples();
+
+    // 泛型与 Trait
+    // generics_and_traits::run_all_examples();
+
+    // 生命周期
+    // lifetimes::run_all_examples();
+
+    // 智能指针与包装类型
+    smart_pointers::run_all_examples();
 }
 ```
 
@@ -395,6 +511,9 @@ cargo test --doc
    - 枚举
    - 集合类型
    - 错误处理
+   - 泛型与 Trait
+   - 生命周期
+   - 智能指针与包装类型
 
 2. **动手实践**：每个模块都可以独立运行，建议边看代码边运行
 
@@ -420,7 +539,10 @@ cargo-learn/
 │   ├── structs.rs                   # 结构体教学模块
 │   ├── enums.rs                     # 枚举教学模块
 │   ├── collections.rs               # 集合类型教学模块
-│   └── error_handling.rs            # 错误处理教学模块
+│   ├── error_handling.rs            # 错误处理教学模块
+│   ├── generics_and_traits.rs       # 泛型与 Trait 教学模块
+│   ├── lifetimes.rs                 # 生命周期教学模块
+│   └── smart_pointers.rs            # 智能指针与包装类型教学模块
 ├── Cargo.toml                       # 项目配置文件
 └── README.md                        # 项目说明文档
 ```
@@ -451,19 +573,18 @@ cargo-learn/
 - **枚举** - 表达复杂数据和状态的利器
 - **集合类型** - Vector、String、HashMap、HashSet 等常用数据结构
 - **错误处理** - Result、panic、? 操作符、thiserror、anyhow
+- **泛型与 Trait** - 代码复用和抽象的核心机制
+- **生命周期** - 引用的有效性、生命周期注解、内存安全保证
+- **智能指针与包装类型** - Box、Rc、Arc、RefCell、Mutex、Cow 等高级类型
 
 ## 📚 扩展学习
 
 完成这些基础模块后，建议继续学习：
 
 - 模块系统（Modules & Packages - mod, pub, use, crate）
-- 泛型（Generics - 泛型函数、泛型结构体、泛型枚举）
-- Trait（特征 - 定义共享行为、trait bounds）
-- 生命周期（Lifetimes - 引用的有效性、生命周期标注）
 - 迭代器（Iterators - map, filter, collect, fold）
 - 闭包（Closures - 匿名函数、捕获环境）
-- 智能指针（Smart Pointers - Box, Rc, RefCell, Arc）
-- 并发编程（Concurrency - 线程、消息传递、共享状态、Mutex）
+- 并发编程（Concurrency - 线程、消息传递、共享状态）
 - 异步编程（Async/Await - Future, async fn, tokio）
 - 宏（Macros - 声明宏、过程宏）
 
