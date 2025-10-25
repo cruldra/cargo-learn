@@ -12,7 +12,8 @@
 // mod generics_and_traits;
 // mod lifetimes;
 // mod smart_pointers;
-mod closures_and_iterators;
+// mod closures_and_iterators;
+mod modules_and_packages;
 
 fn main() {
     // 运行所有变量与可变性的教学示例
@@ -58,5 +59,8 @@ fn main() {
     // smart_pointers::run_all_examples();
 
     // 运行所有闭包与迭代器的教学示例
-    closures_and_iterators::run_all_examples();
+    // closures_and_iterators::run_all_examples();
+
+    // 运行所有模块系统与包管理的教学示例
+    modules_and_packages::run_all_examples();
 }

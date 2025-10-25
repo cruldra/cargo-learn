@@ -460,6 +460,72 @@
 - 零成本抽象（编译时优化）
 - 函数式编程风格
 
+### 16. 模块系统与包管理 (`modules_and_packages.rs`)
+
+学习 Rust 的模块系统和包管理，这是组织大型项目的关键。
+
+**主要内容：**
+
+**模块基础：**
+- mod 关键字（定义模块）
+- 内联模块和嵌套模块
+- 模块路径（绝对路径和相对路径）
+- super 和 self 关键字
+
+**可见性控制：**
+- pub（完全公开）
+- pub(crate)（crate 内可见）
+- pub(super)（父模块可见）
+- pub(in path)（指定路径可见）
+- 结构体字段和枚举变体的可见性
+
+**use 关键字：**
+- 简化路径引用
+- as 重命名
+- 嵌套路径
+- glob 导入（*）
+- pub use 重导出
+
+**文件模块系统：**
+- 单文件模块
+- 目录模块（mod.rs 和新风格）
+- 模块树的组织
+
+**Cargo 和包管理：**
+- Cargo.toml 配置
+- 依赖管理（版本号规则）
+- 依赖来源（crates.io、Git、本地路径）
+- dev-dependencies 和 build-dependencies
+- 特性（Features）
+
+**工作空间：**
+- 多包项目管理
+- 共享依赖和构建缓存
+- 成员包之间的引用
+
+**发布和分发：**
+- 发布到 crates.io
+- 文档注释和示例
+- 版本管理
+- Cargo 常用命令
+
+**条件编译：**
+- cfg 属性
+- 平台特定代码
+- 特性标志
+- 调试 vs 发布模式
+
+**实际应用：**
+- 库的组织最佳实践
+- prelude 模块
+- API 设计
+
+**核心概念：**
+- 模块用于组织代码和控制作用域
+- 默认所有内容都是私有的
+- 使用 pub 控制可见性
+- Cargo 是 Rust 的包管理器和构建工具
+
 ## 🚀 使用方法
 
 ### 运行教学示例
@@ -513,7 +579,10 @@ fn main() {
     // smart_pointers::run_all_examples();
 
     // 闭包与迭代器
-    closures_and_iterators::run_all_examples();
+    // closures_and_iterators::run_all_examples();
+
+    // 模块系统与包管理
+    modules_and_packages::run_all_examples();
 }
 ```
 
@@ -566,6 +635,7 @@ cargo test --doc
    - 生命周期
    - 智能指针与包装类型
    - 闭包与迭代器
+   - 模块系统与包管理
 
 2. **动手实践**：每个模块都可以独立运行，建议边看代码边运行
 
@@ -595,7 +665,8 @@ cargo-learn/
 │   ├── generics_and_traits.rs       # 泛型与 Trait 教学模块
 │   ├── lifetimes.rs                 # 生命周期教学模块
 │   ├── smart_pointers.rs            # 智能指针与包装类型教学模块
-│   └── closures_and_iterators.rs    # 闭包与迭代器教学模块
+│   ├── closures_and_iterators.rs    # 闭包与迭代器教学模块
+│   └── modules_and_packages.rs      # 模块系统与包管理教学模块
 ├── Cargo.toml                       # 项目配置文件
 └── README.md                        # 项目说明文档
 ```
@@ -630,17 +701,18 @@ cargo-learn/
 - **生命周期** - 引用的有效性、生命周期注解、内存安全保证
 - **智能指针与包装类型** - Box、Rc、Arc、RefCell、Mutex、Cow 等高级类型
 - **闭包与迭代器** - 函数式编程、惰性求值、零成本抽象
+- **模块系统与包管理** - mod、pub、use、Cargo、工作空间、发布
 
 ## 📚 扩展学习
 
 完成这些基础模块后，建议继续学习：
 
-- 模块系统（Modules & Packages - mod, pub, use, crate）
 - 并发编程（Concurrency - 线程、消息传递、共享状态）
 - 异步编程（Async/Await - Future, async fn, tokio）
 - 宏（Macros - 声明宏、过程宏）
 - 测试（Testing - 单元测试、集成测试、文档测试）
 - 性能优化（Profiling、Benchmarking）
+- Unsafe Rust（裸指针、unsafe 函数、FFI）
 
 ## 📄 许可证
 
