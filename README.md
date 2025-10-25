@@ -526,6 +526,79 @@
 - 使用 pub 控制可见性
 - Cargo 是 Rust 的包管理器和构建工具
 
+### 17. 并发编程 (`concurrency.rs`)
+
+学习 Rust 的并发编程，这是 Rust 的核心优势之一。
+
+**主要内容：**
+
+**线程基础：**
+- thread::spawn（创建线程）
+- join（等待线程完成）
+- 线程返回值
+- move 闭包（转移所有权）
+
+**消息传递：**
+- mpsc::channel（多生产者单消费者通道）
+- send 和 recv（发送和接收消息）
+- 单生产者单消费者模式
+- 多生产者单消费者模式
+- 通道关闭和迭代
+
+**共享状态：**
+- Mutex（互斥锁）
+- RwLock（读写锁）
+- Arc（原子引用计数）
+- lock 和 unlock（获取和释放锁）
+- 读多写少的优化
+
+**Send 和 Sync trait：**
+- Send（可以在线程间转移所有权）
+- Sync（可以在线程间共享引用）
+- 类型的线程安全性
+- Rc vs Arc
+- RefCell vs Mutex
+
+**原子类型：**
+- AtomicBool、AtomicI32、AtomicUsize
+- fetch_add、fetch_sub、swap
+- compare_exchange（CAS 操作）
+- 无锁并发
+
+**内存顺序：**
+- Relaxed（宽松）
+- Acquire（获取）
+- Release（释放）
+- AcqRel（获取-释放）
+- SeqCst（顺序一致性）
+
+**同步原语：**
+- Barrier（屏障）
+- Condvar（条件变量）
+- 线程同步和协调
+
+**高级特性：**
+- 线程局部存储（thread_local!）
+- 作用域线程（thread::scope）
+- 借用栈上的数据
+
+**线程池：**
+- 线程复用
+- 任务队列
+- 工作线程管理
+- 简单线程池实现
+
+**实际应用：**
+- 并行计算（数据并行）
+- 生产者消费者模式
+- 性能对比和加速比
+
+**核心概念：**
+- Rust 的类型系统保证并发安全
+- 编译时防止数据竞争
+- 无畏并发（Fearless Concurrency）
+- 零成本抽象
+
 ## 🚀 使用方法
 
 ### 运行教学示例
@@ -582,7 +655,10 @@ fn main() {
     // closures_and_iterators::run_all_examples();
 
     // 模块系统与包管理
-    modules_and_packages::run_all_examples();
+    // modules_and_packages::run_all_examples();
+
+    // 并发编程
+    concurrency::run_all_examples();
 }
 ```
 
@@ -636,6 +712,7 @@ cargo test --doc
    - 智能指针与包装类型
    - 闭包与迭代器
    - 模块系统与包管理
+   - 并发编程
 
 2. **动手实践**：每个模块都可以独立运行，建议边看代码边运行
 
@@ -666,7 +743,8 @@ cargo-learn/
 │   ├── lifetimes.rs                 # 生命周期教学模块
 │   ├── smart_pointers.rs            # 智能指针与包装类型教学模块
 │   ├── closures_and_iterators.rs    # 闭包与迭代器教学模块
-│   └── modules_and_packages.rs      # 模块系统与包管理教学模块
+│   ├── modules_and_packages.rs      # 模块系统与包管理教学模块
+│   └── concurrency.rs               # 并发编程教学模块
 ├── Cargo.toml                       # 项目配置文件
 └── README.md                        # 项目说明文档
 ```
@@ -702,17 +780,18 @@ cargo-learn/
 - **智能指针与包装类型** - Box、Rc、Arc、RefCell、Mutex、Cow 等高级类型
 - **闭包与迭代器** - 函数式编程、惰性求值、零成本抽象
 - **模块系统与包管理** - mod、pub、use、Cargo、工作空间、发布
+- **并发编程** - 线程、消息传递、共享状态、Send/Sync、原子类型
 
 ## 📚 扩展学习
 
 完成这些基础模块后，建议继续学习：
 
-- 并发编程（Concurrency - 线程、消息传递、共享状态）
 - 异步编程（Async/Await - Future, async fn, tokio）
 - 宏（Macros - 声明宏、过程宏）
 - 测试（Testing - 单元测试、集成测试、文档测试）
 - 性能优化（Profiling、Benchmarking）
 - Unsafe Rust（裸指针、unsafe 函数、FFI）
+- 高级 trait（关联类型、默认泛型参数、完全限定语法）
 
 ## 📄 许可证
 

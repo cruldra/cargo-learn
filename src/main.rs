@@ -13,7 +13,8 @@
 // mod lifetimes;
 // mod smart_pointers;
 // mod closures_and_iterators;
-mod modules_and_packages;
+// mod modules_and_packages;
+mod concurrency;
 
 fn main() {
     // 运行所有变量与可变性的教学示例
@@ -62,5 +63,8 @@ fn main() {
     // closures_and_iterators::run_all_examples();
 
     // 运行所有模块系统与包管理的教学示例
-    modules_and_packages::run_all_examples();
+    // modules_and_packages::run_all_examples();
+
+    // 运行所有并发编程的教学示例
+    concurrency::run_all_examples();
 }
