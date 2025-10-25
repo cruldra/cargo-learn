@@ -412,6 +412,54 @@
 - RefCell/Mutex 提供内部可变性
 - Cow 优化读多写少的场景
 
+### 15. 闭包与迭代器 (`closures_and_iterators.rs`)
+
+学习 Rust 的闭包和迭代器，这是函数式编程的核心特性。
+
+**主要内容：**
+
+**闭包基础：**
+- 闭包语法（|参数| 表达式）
+- 类型推断（自动推断参数和返回值类型）
+- 闭包捕获环境（不可变借用、可变借用、获取所有权）
+- move 关键字（强制获取所有权）
+
+**闭包 Trait：**
+- Fn（不可变借用）
+- FnMut（可变借用）
+- FnOnce（获取所有权）
+- 闭包作为参数和返回值
+
+**迭代器基础：**
+- Iterator trait
+- iter()、iter_mut()、into_iter()
+- next() 方法
+
+**迭代器适配器：**
+- map（转换元素）
+- filter（过滤元素）
+- fold（归约操作）
+- take/skip（控制数量）
+- enumerate（添加索引）
+- zip/chain（组合迭代器）
+- any/all/find（查询操作）
+
+**自定义迭代器：**
+- 实现 Iterator trait
+- 自定义计数器
+- 自定义范围迭代器
+
+**实际应用：**
+- 数据处理管道
+- 文本处理
+- 惰性求值优化
+
+**核心概念：**
+- 闭包是可以捕获环境的匿名函数
+- 迭代器提供惰性求值
+- 零成本抽象（编译时优化）
+- 函数式编程风格
+
 ## 🚀 使用方法
 
 ### 运行教学示例
@@ -462,7 +510,10 @@ fn main() {
     // lifetimes::run_all_examples();
 
     // 智能指针与包装类型
-    smart_pointers::run_all_examples();
+    // smart_pointers::run_all_examples();
+
+    // 闭包与迭代器
+    closures_and_iterators::run_all_examples();
 }
 ```
 
@@ -514,6 +565,7 @@ cargo test --doc
    - 泛型与 Trait
    - 生命周期
    - 智能指针与包装类型
+   - 闭包与迭代器
 
 2. **动手实践**：每个模块都可以独立运行，建议边看代码边运行
 
@@ -542,7 +594,8 @@ cargo-learn/
 │   ├── error_handling.rs            # 错误处理教学模块
 │   ├── generics_and_traits.rs       # 泛型与 Trait 教学模块
 │   ├── lifetimes.rs                 # 生命周期教学模块
-│   └── smart_pointers.rs            # 智能指针与包装类型教学模块
+│   ├── smart_pointers.rs            # 智能指针与包装类型教学模块
+│   └── closures_and_iterators.rs    # 闭包与迭代器教学模块
 ├── Cargo.toml                       # 项目配置文件
 └── README.md                        # 项目说明文档
 ```
@@ -576,17 +629,18 @@ cargo-learn/
 - **泛型与 Trait** - 代码复用和抽象的核心机制
 - **生命周期** - 引用的有效性、生命周期注解、内存安全保证
 - **智能指针与包装类型** - Box、Rc、Arc、RefCell、Mutex、Cow 等高级类型
+- **闭包与迭代器** - 函数式编程、惰性求值、零成本抽象
 
 ## 📚 扩展学习
 
 完成这些基础模块后，建议继续学习：
 
 - 模块系统（Modules & Packages - mod, pub, use, crate）
-- 迭代器（Iterators - map, filter, collect, fold）
-- 闭包（Closures - 匿名函数、捕获环境）
 - 并发编程（Concurrency - 线程、消息传递、共享状态）
 - 异步编程（Async/Await - Future, async fn, tokio）
 - 宏（Macros - 声明宏、过程宏）
+- 测试（Testing - 单元测试、集成测试、文档测试）
+- 性能优化（Profiling、Benchmarking）
 
 ## 📄 许可证
 
